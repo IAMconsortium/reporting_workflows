@@ -1,0 +1,8 @@
+.RDataTmp
+*.~gm
+*.gdx
+*.lst
+*.log
+*.lxi
+*.gpr
+*.dat
