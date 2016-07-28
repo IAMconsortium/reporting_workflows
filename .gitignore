@@ -7,3 +7,9 @@
 *.gpr
 *.dat
 *.csv
+#*.xlsx
+.DS_Store
+.RData
+.Rhistory
+.Rproj.user
+*.Rproj
