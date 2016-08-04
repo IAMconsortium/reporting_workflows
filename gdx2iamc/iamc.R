@@ -1,16 +1,16 @@
-# iiasadb.R define S3 methods to describes and manipulate the iiasa db template file
+# iamc.R define S3 methods to describes and manipulate the IAMC db template file
 #require(openxlsx)
 #require(data.table)
 #require(tools)
 
 #' @export
-iiasa.template <- function(filename, ...) {
-  structure(list(filename = filename, ...), class = "iiasa.template")
+iamc.template <- function(filename, ...) {
+  structure(list(filename = filename, ...), class = "iamc.template")
 }
 
 #' @export
-print.iiasa.template <- function(x, ...) {
-  cat("<IIASA template: ", x$filename, ">\n", sep = "")
+print.iamc.template <- function(x, ...) {
+  cat("<iamc template: ", x$filename, ">\n", sep = "")
 }
 
 #' @export
@@ -20,7 +20,7 @@ loadvar <- function(x, ...) {
 
 #' @export
 # load the variable definition from the template
-loadvar.iiasa.template <- function(x, sheetvar="variable definitions",
+loadvar.iamc.template <- function(x, sheetvar="variable definitions",
                                    colvar=NA, colunit=NA, firstrow=2,
                                    guess_var=T) {
   
@@ -49,11 +49,11 @@ loadvar.iiasa.template <- function(x, sheetvar="variable definitions",
   
   if(!guess_var) return(xls.var)
   
-  # guess WITCH variables
-  witch.var = rbindlist(lapply(variables[,1],guess_gdx_var))
-  witch.var[] <- lapply(witch.var, as.character)
+  # guess MODEL variables
+  model.var = rbindlist(lapply(variables[,1],guess_gdx_var))
+  model.var[] <- lapply(model.var, as.character)
 
-    return(cbind(xls.var,witch.var))
+    return(cbind(xls.var,model.var))
 }
 
 # register function
@@ -62,7 +62,7 @@ getyears <- function(x, ...) {
 }
 
 # load the variable definition from the template
-getyears.iiasa.template <- function(x, sheetdata="data") {
+getyears.iamc.template <- function(x, sheetdata="data") {
   
   # open template workbook
   wb <- loadWorkbook(file=x$filename)
@@ -85,7 +85,7 @@ savexls <- function(x, ...) {
   UseMethod("savexls",x)
 }
 
-savexls.iiasa.template <- function(x, .data, sheetdata="data", addtimestamp=T, keepNA=F){
+savexls.iamc.template <- function(x, .data, sheetdata="data", addtimestamp=T, keepNA=F){
   
   # keep only useful column
   .data = .data[,list(model,scenario,nrep,var,unit,year,value)]
@@ -135,7 +135,7 @@ savexls.iiasa.template <- function(x, .data, sheetdata="data", addtimestamp=T, k
   for(i in 1:max(idxpart)) {
     
     # create workbook
-    wb <- createWorkbook(creator="gdx2iiasa")
+    wb <- createWorkbook(creator="gdx2iamc")
     
     # add data worksheet
     addWorksheet(wb,sheetdata)
@@ -158,16 +158,16 @@ savexls.iiasa.template <- function(x, .data, sheetdata="data", addtimestamp=T, k
 }
 
 
-# Guess the GAMS variable from the IIASA variable
-# vsub: name of the GAMS parameters (= first level of IIASAdb variable)
-# vrep: name of the first GAMS index (= remaining levels of IIASAdb variable)
+# Guess the GAMS variable from the IAMC variable
+# vsub: name of the GAMS parameters (= first level of iamcdb variable)
+# vrep: name of the first GAMS index (= remaining levels of iamcdb variable)
 # some example
-# IIASA Variable      GAMS parameter
+# IAMC Variable      GAMS parameter
 # Emissions|CO2       rep_emissions('CO2',time,region)
 # Forcing|Aerosol|BC  rep_forcing('Aerosol|BC',time,region)
-guess_gdx_var <- function(iiasa.var){
-  stopifnot(nrow(iiasa.var)==1)
-  vparts = unlist(str_split(iiasa.var,"\\|"))
+guess_gdx_var <- function(iamc.var){
+  stopifnot(nrow(iamc.var)==1)
+  vparts = unlist(str_split(iamc.var,"\\|"))
   lv = length(vparts)
   if(lv==1){
     vsub='Total'
