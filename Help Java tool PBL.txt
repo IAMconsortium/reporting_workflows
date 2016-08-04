@@ -1,0 +1,16 @@
+PblDeliveryTool creates an Excel report from MyM data and Excel formatting sheets
+
+Usage: PblDeliveryTool <outputfile> <loglevel> <template> <mapping> <scenario base path> <scenarios> [regions]
+with:
+	<outputfile>	 '-f myfile.xls' Name and path where the generated Excel output file should be created
+	<loglevel>	 '-l WARN' One of ALL, FATAL, ERROR, WARN, INFO. All messages that have less importance than the specified level are nog logged.
+	<template>	 '-t myTemplate.xls' The template file contains the subset of the mapping to report and the years to report on (Excel file).
+	<mapping>	 '-m myMapping.xls' The mapping file defines a variable that can be reported and provides information its dimensions (Excel file).
+	<scenario base path> '-b C:\\path\to\scenario_' The path that is put in front of the scenario's, note that no additional slashes are added when appending the scenario to it.
+	<scenarios>	'-s scenario [-s scenario2]' The scenario's (collection of MyM files) that should be part of the report, multiple scenario's can be provided.
+	[regions]	 '-r World -r CAN' Filter to put only the selected regions in the report, provide no regions to include all regions.
+	 <outputformat>	 '-of csv|excel Format of outputfile. Excel is the default.
+	 <numberformat>	 '-nf decimal|e numberformat of data. decimal is the default. 
+	The base path with a scenario appended should be a valid path that is the root dir of the MyM collection, i.e. should have subdirs F2RT, I2RT, T2RT
+Example: java -jar PblDeliveryTool.jar -l INFO -t test.xls -t templateTest.xls -m mapping.xls -b C:\\data\\scenario_ -s R2G23 -r World -r CAN\r\n 
+ERROR: check your commandline arguments";
