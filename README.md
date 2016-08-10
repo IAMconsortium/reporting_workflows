@@ -2,12 +2,18 @@
 
 *Simple ways from modeling results to standardized outputs*
 
-This repository provides a number of template workflows and illustrative examples to automate the processing of modeling results to the standardized MS Excel results template used by the [Integrated Assessment Modeling Consortium (IAMC)](http://www.globalchange.umd.edu/iamc/). Our aim is to provide best-practice code snippets for output data processing to the modeling community, so that we can spend more energy on developing models and analyzing the results, while requiring less time and effort for the post-processing.
+This repository provides a number of template workflows and illustrative examples to 
+automate the processing of modeling results to the standardized MS Excel results template
+used by the [Integrated Assessment Modeling Consortium (IAMC)](http://www.globalchange.umd.edu/iamc/). 
+Our aim is to provide best-practice code snippets for output data processing to the modeling community, 
+so that we can spend more energy on developing models and analyzing the results, while requiring less time and 
+effort for the post-processing.
 
 ##Contents:
 
 - Dantzig’s transportation example (in GAMS) using R
 - The economy-energy model ETAMAC (in GAMS) using R  
+- The gdx2iamc R package is the most advanced GAMS-gdx-to-Excel code using R in this repository (to date)
 
 ##How to use this repository and the templates
 
