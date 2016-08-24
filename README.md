@@ -14,6 +14,7 @@ effort for the post-processing.
 - Dantzig’s transportation example (in GAMS) using R
 - The economy-energy model ETAMAC (in GAMS) using R  
 - The gdx2iamc R package is the most advanced GAMS-gdx-to-Excel code using R in this repository (to date)
+- The java2iamc package provides a Java framework for an efficient results-to-Excel-workflow based on mapping tables
 
 ##How to use this repository and the templates
 
@@ -24,5 +25,6 @@ effort for the post-processing.
 
 ## Disclaimer
 
-This repository was initiated within the Horizon2020 project [CD-LINKS](http://www.cd-links.org/). All code is provided “as-is”  and any express or implied warranties are disclaimed.
+This repository was initiated within the Horizon2020 project [CD-LINKS](http://www.cd-links.org/). All code is provided “as-is” 
+and any express or implied warranties are disclaimed. See the license file for details.
 
