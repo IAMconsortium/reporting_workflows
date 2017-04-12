@@ -7,10 +7,6 @@ warning("Last version of script and package is now at https://github.com/lolow/g
 # Author: laurent.drouet@feem.it
 # Version: 07/2016
 #
-# TODO
-# - Use the model registration form for information if available
-# - Convert into a package
-#
 # NOTE:
 # If gdxtools does not find your gams installation, 
 # add the following lines in the package section 
