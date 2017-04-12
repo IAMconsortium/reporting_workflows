@@ -1,3 +1,5 @@
+warning("Last version of script and package is now at https://github.com/lolow/gdx2iamc")
+
 # gdx2iamc.R
 # Usage: Rscript gdx2iamc.R, or from Rstudio 
 #
