@@ -9,14 +9,14 @@ Our aim is to provide best-practice code snippets for output data processing to 
 so that we can spend more energy on developing models and analyzing the results, while requiring less time and 
 effort for the post-processing.
 
-##Contents:
+## Contents:
 
 - Dantzig’s transportation example (in GAMS) using R
 - The economy-energy model ETAMAC (in GAMS) using R  
 - The gdx2iamc R package is the most advanced GAMS-gdx-to-Excel code using R in this repository (to date)
 - The java2iamc package provides a Java framework for an efficient results-to-Excel-workflow based on mapping tables
 
-##How to use this repository and the templates
+## How to use this repository and the templates
 
 - Search for a template that matches the programming languages and workflows of your own model
 - Download and study the template(s), and implement them in your model to make your output processing more efficient
